@@ -6,13 +6,30 @@
 
 ## Development
 
+### Quick Start Guide + API Keys
+
+1. Install the METRC package with Composer: `composer require 'kushy/metrc-php-sdk'`
+2. Require whichever route class you need in your application - in this case we want to access the `/harvests/` endpoint (*assuming you're using PSR-4*):
+```php
+require_once '../../../vendor/autoload.php';
+
+use Kushy\Metrc\Routes\Harvests;
+```
+3. Create a new instance of the route class (`Harvests`) and pass through your state's abbreviated name (in this case `ca` for California) and Vendor + User API keys:
+```php
+$harvests = new Harvests('ca', $vendorApiKey, $userApiKey);
+```
+4. Use one of the class methods to query the API - this example grabs the active harvests:
+```php
+$harvests = $metrc->getActive($licenseNumber, $startDate, $endDate);
+```
+
+### Tips
+
 **General**
 * [General API Tips](https://api-ca.metrc.com/Documentation/#getting_started_working_with_the_api)
 * All API requests (POST/PUT) must be sent in JSON format ([see Guzzle on JSON](http://docs.guzzlephp.org/en/stable/request-options.html#json))
 * All dates are ISO 8601 format. See below for time conversion snippets.
-* 
-
-### Tips
 
 **Dates are ISO format**
 Sending dates to API? Use ISO 8601 formatted date: `0001-01-01T00:00:00+00:00`
@@ -55,7 +72,3 @@ Copy API response/sample data and do this:
   "LastModified": "0001-01-01T00:00:00+00:00",
   "Strains": []
 ```
-
-## Process
-
-Create a config file with API key data - temporarily use Directus API info. Make folders for each section and example scripts for each route in a separate file to organize easier.

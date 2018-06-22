@@ -1,5 +1,22 @@
 {
+    "name": "kushy/metrc-php-sdk",
+    "description": "An easy to use PHP API for the METRC state licensed seed to sale cannabis API using the Guzzle library. Require, create new instance with API keys, and query any endpoint (GET, POST, PUT, DELETE)",
+    "type": "library",
+    "keywords": ["metrc", "api", "sdk", "cannabis", "marijuana"],
+    "homepage": "https://kushy.net/developers",
+    "license": "MIT",
+    "authors": [{
+        "name": "Ryosuke Hana",
+        "email": "ryosuke.san.hana@gmail.com",
+        "homepage": "http://whoisryosuke.com",
+        "role": "Developer"
+    }],
     "require": {
         "guzzlehttp/guzzle": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kushy\\": "app/lib/Kushy/"
+        }
     }
 }
