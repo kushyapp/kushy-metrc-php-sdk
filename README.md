@@ -72,3 +72,12 @@ Copy API response/sample data and do this:
   "LastModified": "0001-01-01T00:00:00+00:00",
   "Strains": []
 ```
+
+## Testing
+
+Example files are provided in the package for each endpoint and method (GET, POST, PUT, DELETE) to easily test each endpoint manually with properly formed sample data. 
+
+> For example, to see a list of all active harvests, copy the code from `test/example/harvests/get-active-harvest.php`.
+
+*I'm looking to implement unit testing soon to ensure package integrity.*
+
